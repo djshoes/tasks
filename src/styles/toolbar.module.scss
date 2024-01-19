@@ -1,0 +1,11 @@
+.toolbar {
+    border-bottom: 1px solid #333;
+    //height: 40px;
+    display: flex;
+    align-items: center;
+    padding: 5px 0px;
+    > div > div {
+        display: flex;
+        align-items: center;
+    }
+}

@@ -1,0 +1,23 @@
+#projectTop {
+    @media(max-width: 768px) {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        background-color: #121212;
+        height: 100vh;
+        z-index: 999;
+        align-items: start;
+        padding: 10px 20px;
+        transition: all .4s;
+        opacity: 0;
+        pointer-events: none;
+        left: -100%;
+        flex-direction: column;
+    }
+}
+#projectTop.open {
+    left: 0;
+    pointer-events: all;
+    opacity: 1;
+}

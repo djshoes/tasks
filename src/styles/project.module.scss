@@ -1,0 +1,12 @@
+.project {
+    @media(max-width: 426px) {
+        min-width: fit-content;
+        margin-right: 10px;
+        width: fit-content !important;
+    }
+}
+
+.project.active {
+    background-color: #333;
+    color: #fff !important;
+}

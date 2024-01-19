@@ -1,0 +1,17 @@
+.projects {
+    @media(max-width: 768px) {
+        overflow: scroll;
+    }
+}
+
+.projectType {
+    min-width: 150px;
+    min-height: 150px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.projectsContainer {
+    max-height: 90vh;
+    overflow: auto;
+}

@@ -1,0 +1,21 @@
+.topSection {
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    input {
+        background-color: transparent !important;
+        color: #fff;
+        border-color: rgb(101, 101, 101);
+        &::placeholder {
+            //color: #fff;
+        }
+        &:focus {
+            color: #fff;
+        }
+    }
+    button, button:active, button:hover, button:focus {
+        //border-color: #ced4da !important;
+        border-color: rgb(101, 101, 101) !important;
+    }
+}

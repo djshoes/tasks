@@ -1,0 +1,41 @@
+.light {
+    background: #fff !important;
+    color: #333 !important;
+    .card {
+        background: #F8F9FA !important;
+    }
+    .card-body {
+        color: #333 !important;
+    }
+    .form-control {
+        color: #333 !important;
+        &:focus {
+            color: #333 !important;
+        }
+    }
+    #notes {
+        div {
+            &:nth-child(2) {
+                background-color: #F8F9FA !important;
+                border: 1px solid rgba(0, 0, 0, .125) !important;
+                div {
+                    p {
+                        background-color: #dbdbdb !important;
+                        color: #333 !important;
+                    }
+                }
+            }
+        }
+    }
+    .project {
+        color: #333 !important;
+        &:hover {
+            background-color: #dcdcdc !important;
+            cursor: pointer;
+        }
+    }
+    .project.active {
+        background-color: #dcdcdc !important;
+        color: #333 !important;
+    }
+}
