@@ -35,8 +35,8 @@ code {
 }
 
 .project:hover {
-  background-color: #333;
-  cursor: pointer;
+  background-color: #333 !important;
+  cursor: pointer !important;
 }
 .border-right {
     border-right: 1px solid #333 !important;

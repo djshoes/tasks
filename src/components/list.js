@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { v4 as uuid } from 'uuid';
 import {
-    addTask, removeTask, done, load, loadList
+    addTask, removeTask, done, load, loadList, pin
 } from '../features/tasksSlice'
 import TopSection from './TopSection';
 import Task from './Task';
@@ -21,7 +21,7 @@ export default function List() {
     const handleAddTask = (e) => {
         e.preventDefault()
 
-        dispatch(addTask({ id: uuid(), projectId: projectId.currentProject, name: taskVal, done: false, time: new Date().toLocaleString() }))
+        dispatch(addTask({ id: uuid(), projectId: projectId.currentProject, name: taskVal, done: false, time: new Date().toLocaleString(), pinned: false }))
         document.getElementById('addform').reset()
         dispatch(loadList({id: projectId.currentProject}))
     }
@@ -30,6 +30,11 @@ export default function List() {
 
     const taskDone = (id, status) => {
         dispatch(done({ id: id, done: status }))
+        dispatch(loadList({ id: projectId.currentProject }))
+    }
+
+    const taskPinned = (id, status) => {
+        dispatch(pin({ id: id, pinned: status }))
         dispatch(loadList({ id: projectId.currentProject }))
     }
 
@@ -42,7 +47,7 @@ export default function List() {
                 placeholder='Add Task - [press ⏎ to add]'
                 inputid='taskName'
             />
-            <div className='card scrollbar' style={{ maxHeight: '80vh', overflow: 'auto' }}>
+            <div className='card scrollbar' style={{ maxHeight: '80vh', overflowY: 'auto' }}>
                 <div className='card-body'>
                     <ul className='pl-0'>
                         {tasks.map((item, i) => {
@@ -50,6 +55,7 @@ export default function List() {
                                 <Task
                                     key={i}
                                     taskDone={taskDone}
+                                    taskPinned={taskPinned}
                                     item={item}
                                 />
                             )
