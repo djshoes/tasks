@@ -6,6 +6,10 @@ import {
 } from '../features/tasksSlice'
 import TopSection from './TopSection';
 import Task from './Task';
+import styles from '../styles/List.module.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faThumbtack } from '@fortawesome/free-solid-svg-icons'
+import { Card } from 'react-bootstrap';
 
 export default function List() {
     const tasks = useSelector((state) => state.tasks.value)
@@ -47,22 +51,48 @@ export default function List() {
                 placeholder='Add Task - [press ⏎ to add]'
                 inputid='taskName'
             />
-            <div className='card scrollbar' style={{ maxHeight: '80vh', overflowY: 'auto' }}>
-                <div className='card-body'>
-                    <ul className='pl-0'>
-                        {tasks.map((item, i) => {
-                            return (
-                                <Task
-                                    key={i}
-                                    taskDone={taskDone}
-                                    taskPinned={taskPinned}
-                                    item={item}
-                                />
-                            )
-                        })}
-                    </ul>
-                </div>
-            </div>
+            <Card className={`${styles.listContainer} scrollbar`}>
+            { tasks.some(task => task.pinned === true) ? 
+                <Card className={`${styles.pinned}`}>
+                    <div className={styles.pinLogo}><FontAwesomeIcon icon={faThumbtack} /></div>
+                    <Card.Body>
+                        <ul className='pl-0'>
+                            {tasks.map((item, i) => {
+                                if (item.pinned === true) {
+                                    return (
+                                        <Task
+                                            key={i}
+                                            taskDone={taskDone}
+                                            taskPinned={taskPinned}
+                                            item={item}
+                                        />
+                                    )
+                                }
+                            })}
+                        </ul>
+                    </Card.Body>
+                </Card>
+                : null }
+                <Card>
+                    <Card.Body>
+                        <ul className='pl-0'>
+                            {tasks.map((item, i) => {
+                                if (item.pinned !== true) {
+                                    return (
+                                        <Task
+                                            key={i}
+                                            taskDone={taskDone}
+                                            taskPinned={taskPinned}
+                                            item={item}
+                                        />
+                                    )
+                                }
+                            })}
+                        </ul>
+                    </Card.Body>
+                </Card>
+            </Card>
+            
         </div>
     )
 }

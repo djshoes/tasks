@@ -6,13 +6,13 @@ import TaskMenu from './TaskMenu'
 const Task = (props) => {
 
     return ( 
-            <li style={{borderBottom: '1px solid darksalmon'}} className={`d-flex justify-content-between align-items-center ${props.item.pinned ? '' : 'border-bottom'} py-3`}>
+            <li className={`d-flex justify-content-between align-items-center ${props.item.pinned ? '' : 'border-bottom'} py-3`}>
                 <div>
                     <p className='mb-0' style={props.item.done ? { textDecoration: 'line-through' } : null}>{props.item.name}</p>
                     <small className='text-muted'>{props.item.time ? props.item.time : ''}</small>
                 </div>
                 <div className='ml-auto'>
-                    <span className='px-4' style={{ cursor: 'poiner' }} onClick={() => props.taskDone(props.item.id, !props.item.done)}>
+                    <span style={{ cursor: 'poiner' }} onClick={() => props.taskDone(props.item.id, !props.item.done)}>
                         {props.item.done ? <FontAwesomeIcon color='green' icon={faCircleCheck} /> : <FontAwesomeIcon color='grey' icon={faCircle} />}
                     </span>
                 </div>

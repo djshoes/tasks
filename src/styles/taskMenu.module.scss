@@ -1,3 +1,5 @@
+@import '../styles/variables.scss';
+
 .taskMenu {
     position: absolute;
     background-color: #333;
@@ -32,6 +34,6 @@
 
 .pinned {
     svg {
-        color: darksalmon;
+        color: $purple;
     }
 }
