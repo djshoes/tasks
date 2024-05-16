@@ -51,6 +51,7 @@ export default function List() {
                 placeholder='Add Task - [press ⏎ to add]'
                 inputid='taskName'
             />
+            <p className='mr-auto mb-1'>{tasks.filter(task => task.done === true).length} out of {tasks.length} tasks done</p>
             <Card className={`${styles.listContainer} scrollbar`}>
             { tasks.some(task => task.pinned === true) ? 
                 <Card className={`${styles.pinned}`}>
