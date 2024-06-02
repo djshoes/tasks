@@ -45,3 +45,7 @@ code {
 h2 {
   margin-bottom: 0;
 }
+
+.right-zero {
+  right: 0px !important;
+}

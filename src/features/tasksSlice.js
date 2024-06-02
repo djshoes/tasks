@@ -58,10 +58,26 @@ export const tasksSlice = createSlice({
         loadState: (state, action) => {
             state.allTasks = action.payload.value
             state.value = []
+        },
+        addTaskTags: (state, action) => {
+            let task = state.allTasks.find(item => item.id === action.payload.id)
+            task.tags ? task.tags = [...task.tags, action.payload.tags] 
+                : task.tags = [action.payload.tags] 
+            
         }
     }
 })
 
-export const { addTask, removeTask, done, load, loadList, removeProjectTasks, loadState, pin } = tasksSlice.actions
+export const { 
+    addTask, 
+    removeTask, 
+    done, 
+    load, 
+    loadList, 
+    removeProjectTasks, 
+    loadState, 
+    pin ,
+    addTaskTags
+} = tasksSlice.actions
 
 export default tasksSlice.reducer

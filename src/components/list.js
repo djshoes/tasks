@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { v4 as uuid } from 'uuid';
 import {
-    addTask, removeTask, done, load, loadList, pin
+    addTask, done, loadList, pin
 } from '../features/tasksSlice'
 import TopSection from './TopSection';
 import Task from './Task';
