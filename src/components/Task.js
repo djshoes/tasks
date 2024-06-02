@@ -13,7 +13,7 @@ const Task = (props) => {
                     <small className='text-muted d-inline-block mr-2'>{props.item.time ? props.item.time : ''}</small>
                     {props.item.tags ? 
                         props.item.tags.map((tag, i) => {
-                            return <Tag key={i} tag={tag} />
+                            return <Tag key={i} tag={tag} taskid={props.item.id} />
                             
                         })
                         : null
