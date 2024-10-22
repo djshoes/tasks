@@ -11,7 +11,7 @@ export const settingsSlice = createSlice({
     reducers: {
         //write these functions properly
         setProjectId: (state, action) => {
-            console.log(action.payload.id)
+            //console.log(action.payload.id)
             state.value = {currentProject: action.payload.id}
         },
         toggleSidebarMenu: (state) => {

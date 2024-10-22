@@ -10,6 +10,7 @@ import styles from '../styles/List.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faThumbtack } from '@fortawesome/free-solid-svg-icons'
 import { Card } from 'react-bootstrap';
+import ProgressBar from './ProgressBar/ProgressBar';
 
 export default function List() {
     const tasks = useSelector((state) => state.tasks.value)
@@ -51,7 +52,10 @@ export default function List() {
                 placeholder='Add Task - [press ⏎ to add]'
                 inputid='taskName'
             />
-            <p className='mr-auto mb-1'>{tasks.filter(task => task.done === true).length} out of {tasks.length} tasks done</p>
+            <div className='d-flex align-items-center w-100'>
+                <p style={{minWidth: '200px'}} className='mr-auto mb-1'>{tasks.filter(task => task.done === true).length} out of {tasks.length} tasks done</p>
+                <ProgressBar tasks={tasks} />
+            </div>
             <Card className={`${styles.listContainer} scrollbar`}>
             { tasks.some(task => task.pinned === true) ? 
                 <Card className={`${styles.pinned}`}>

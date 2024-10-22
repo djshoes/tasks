@@ -3,6 +3,7 @@ import HideProjects from './HideProjects';
 import styles from '../../styles/toolbar.module.scss';
 import ToggleTheme from './ToggleTheme';
 import SaveAsTemplate from './SaveAsTemplate';
+import PlusBtn from '../PlusBtn'
 
 const Toolbar = () => {
     return ( 
@@ -18,6 +19,7 @@ const Toolbar = () => {
                     <SaveAsTemplate />
                 </Col>
             </Row>
+            <div className='ms-auto'><PlusBtn /></div>
         </section>
      );
 }

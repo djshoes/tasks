@@ -40,7 +40,7 @@ export const tasksSlice = createSlice({
             state.allTasks = state.allTasks.filter(item => item.id !== action.payload)
         },
         done: (state, action) => {
-            console.log(action.payload)
+            //console.log(action.payload)
 
             state.allTasks = sortTasks(state.allTasks, action.payload);
         },
@@ -51,8 +51,8 @@ export const tasksSlice = createSlice({
             state.value = JSON.parse(localStorage.getItem("todolist"))
         },
         removeProjectTasks: (state, action) => {
-            console.log('remove tasks atction')
-            console.log(action)
+            //console.log('remove tasks atction')
+            //console.log(action)
             state.allTasks = state.allTasks.filter(item => item.projectId !== action.payload.id)
         },
         loadState: (state, action) => {

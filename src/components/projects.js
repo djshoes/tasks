@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { v4 as uuid } from 'uuid';
 import {
-    addProject, removeProject, openProjectForm, closeProjectForm
+    addProject, removeProject, closeProjectForm
 } from '../features/projectsSlice'
 import { setProjectId } from '../features/settingsSlice'
 import { loadList, removeProjectTasks, addTask } from '../features/tasksSlice'
@@ -11,7 +11,6 @@ import { loadNotes } from '../features/notesSlice'
 import TopSection from './TopSection';
 import Project from './Project';
 import styles from '../styles/projects.module.scss';
-import PlusBtn from './PlusBtn';
 import '../styles/projectTop.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
@@ -42,7 +41,10 @@ export default function Projects() {
     }
 
     const modalExit = () => {
-        document.getElementById('taskName').focus()
+        let width = window.matchMedia('(max-width: 768px)');
+        if(!width.matches) {
+            document.getElementById('taskName').focus()
+        }
         setShowTemplates(false)
     }
 
@@ -86,9 +88,6 @@ export default function Projects() {
         }
     }
 
-    const handleOpenProjectForm = () => {
-        dispatch(openProjectForm())
-    }
     return (
         <div className={styles.projects + ' d-flex flex-md-column align-items-start'}>
             <TopSection
@@ -119,7 +118,6 @@ export default function Projects() {
                         />
                     )
                 })}
-            <PlusBtn action={handleOpenProjectForm} class='d-md-none' />
             </div>
 
             <Modal show={show} onHide={handleClose} restoreFocus={false} onExited={modalExit}>
