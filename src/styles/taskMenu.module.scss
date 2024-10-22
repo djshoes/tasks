@@ -1,0 +1,39 @@
+@import '../styles/variables.scss';
+
+.taskMenu {
+    position: absolute;
+    background-color: #333;
+    padding: 10px;
+    top: 110%;
+    right: -3px;
+    border-radius: 5px;
+    min-width: 85px;
+}
+
+.menuItem {
+    display: flex;
+    align-items: baseline;
+    svg {
+        margin: 0px 10px 0 0;
+        font-size: 12px;
+    }
+    &:hover {
+        color: lightgrey;
+        cursor: pointer;
+    }
+}
+
+.svg, .pin {
+    &:hover {
+        color: grey;
+    }
+    color: lightgrey;
+    cursor: pointer;
+    margin-top: 1px;
+}
+
+.pinned {
+    svg {
+        color: $purple;
+    }
+}

@@ -1,0 +1,31 @@
+.tag {
+    background-color: aquamarine;
+    display: inline-block;
+    padding: 1px 6px;
+    border-radius: 15px;
+    color: #000;
+    margin: 0px 3px;
+    font-size: 12px;
+    position: relative;
+    &:hover {
+        > span {
+            opacity: 1;
+        }
+    }
+}
+.delete {
+    transition: all .4s;
+    opacity: 0;
+    position: absolute;
+    border-radius: 50%;
+    width: 17px;
+    height: 17px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    top: -5px;
+    right: -5px;
+    cursor: pointer;
+}

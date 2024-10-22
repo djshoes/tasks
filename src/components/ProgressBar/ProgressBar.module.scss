@@ -1,0 +1,15 @@
+.ProgressBar {
+    width: 100%;
+    height: 3px;
+    background-color: grey;
+    position: relative;
+    max-width: 300px;
+    > div {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        background-image: linear-gradient(to right, green, greenyellow);
+        transition: all .4s;
+    }
+}

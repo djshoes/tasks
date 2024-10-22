@@ -15,6 +15,7 @@ import { loadState as loadProjectState } from './features/projectsSlice';
 import { loadState as loadTasksState } from './features/tasksSlice';
 import { loadState as loadNotesState } from './features/notesSlice';
 import { loadState as loadTemplatesState } from './features/templatesSlice';
+import SidebarMenu from './components/SidebarMenu/SidebarMenu';
 
 
 function App() {
@@ -110,6 +111,7 @@ function App() {
             </Col>
           </Row>
         </Container>
+        <SidebarMenu />
     </div>
   );
 }
