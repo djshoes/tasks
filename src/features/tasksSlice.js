@@ -67,6 +67,9 @@ export const tasksSlice = createSlice({
         removeTag: (state, action) => {
             let task = state.allTasks.find(item => item.id === action.payload.id)
             task.tags = task.tags.filter(tag => tag !== action.payload.tag)
+        },
+        deleteAllDone: (state, action) => {
+            state.allTasks = state.allTasks.filter(task => (task.projectId === action.payload.currentProject && !task.done) || task.projectId !== action.payload.currentProject)
         }
     }
 })
@@ -81,7 +84,8 @@ export const {
     loadState, 
     pin ,
     addTaskTags,
-    removeTag
+    removeTag,
+    deleteAllDone
 } = tasksSlice.actions
 
 export default tasksSlice.reducer

@@ -4,6 +4,7 @@ import styles from '../../styles/toolbar.module.scss';
 import ToggleTheme from './ToggleTheme';
 import SaveAsTemplate from './SaveAsTemplate';
 import PlusBtn from '../PlusBtn'
+import DeleteAllDone from './DeleteAllDone';
 
 const Toolbar = () => {
     return ( 
@@ -17,6 +18,9 @@ const Toolbar = () => {
                 </Col>
                 <Col>
                     <SaveAsTemplate />
+                </Col>
+                <Col>
+                    <DeleteAllDone />
                 </Col>
             </Row>
             <div className='ms-auto'><PlusBtn /></div>
