@@ -35,17 +35,19 @@ export const tasksSlice = createSlice({
         addTask: (state, action) => {
             state.allTasks = [...state.allTasks, action.payload]
             state.allTasks = sortTasks(state.allTasks, action.payload);
+            state.value = state.allTasks.filter(item => item.projectId === action.payload.projectId)
         },
         removeTask: (state, action) => {
-            state.allTasks = state.allTasks.filter(item => item.id !== action.payload)
+            state.allTasks = state.allTasks.filter(item => item.id !== action.payload.id)
+            state.value = state.allTasks.filter(item => item.projectId === action.payload.currentProject)
         },
         done: (state, action) => {
-            //console.log(action.payload)
-
             state.allTasks = sortTasks(state.allTasks, action.payload);
+            state.value = state.allTasks.filter(item => item.projectId === action.payload.projectId)
         },
         pin: (state, action) => {
             state.allTasks = sortTasks(state.allTasks, action.payload);
+            state.value = state.allTasks.filter(item => item.projectId === action.payload.projectId)
         },
         load: (state) => {
             state.value = JSON.parse(localStorage.getItem("todolist"))
@@ -67,6 +69,10 @@ export const tasksSlice = createSlice({
         removeTag: (state, action) => {
             let task = state.allTasks.find(item => item.id === action.payload.id)
             task.tags = task.tags.filter(tag => tag !== action.payload.tag)
+        },
+        deleteAllDone: (state, action) => {
+            state.allTasks = state.allTasks.filter(task => (task.projectId === action.payload.currentProject && !task.done) || task.projectId !== action.payload.currentProject)
+            state.value = state.allTasks.filter(item => item.projectId === action.payload.currentProject)
         }
     }
 })
@@ -81,7 +87,8 @@ export const {
     loadState, 
     pin ,
     addTaskTags,
-    removeTag
+    removeTag,
+    deleteAllDone
 } = tasksSlice.actions
 
 export default tasksSlice.reducer

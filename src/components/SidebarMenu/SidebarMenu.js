@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import { toggleSidebarMenu } from '../../features/settingsSlice';
 import Backdrop from '../Backdrop/Backdrop';
+import DeleteTask from '../DeleteTask/DeleteTask';
 
 const SidebarMenu = () => {
     const sidebarOpen = useSelector(state => state.settings.sidebarMenuOpen)
@@ -17,6 +18,7 @@ const SidebarMenu = () => {
             <FontAwesomeIcon className={styles.close} onClick={() => dispatch(toggleSidebarMenu())} icon={faTimesCircle} />
             {currentTaskId ? <small className={styles.small}>{currentTaskId}</small> : ''}
             <Addtags currentTask={currentTaskId} />
+            <DeleteTask currentTask={currentTaskId} />
         </div>
         </>
      );

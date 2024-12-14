@@ -79,14 +79,6 @@ export default function Projects() {
         dispatch(loadNotes(project))
         modalExit()
     }
-    const remove = (project) => {
-        let x = window.confirm('really delete?');
-        if (x) {
-            dispatch(removeProject(project))
-            dispatch(removeProjectTasks(project))
-            dispatch(removeProjectNotes(project))
-        }
-    }
 
     return (
         <div className={styles.projects + ' d-flex flex-md-column align-items-start'}>
@@ -114,7 +106,6 @@ export default function Projects() {
                             project={project}
                             handleLoadList={handleLoadList}
                             name={project.name}
-                            remove={remove}
                         />
                     )
                 })}
