@@ -10,6 +10,8 @@
     z-index: 99;
     min-width: 33vw;
     transition: all .4s;
+    display: flex;
+    flex-direction: column;
 }
 
 .small {
