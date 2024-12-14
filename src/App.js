@@ -103,7 +103,7 @@ function App() {
             <Col md={3} lg={2} id='projectsCol' className='border-right'>
               <Projects />
             </Col>
-            <Col md={6} lg={5}>
+            <Col md={6}>
               <List />
             </Col>
             <Col>
