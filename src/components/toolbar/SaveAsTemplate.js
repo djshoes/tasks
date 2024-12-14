@@ -32,7 +32,7 @@ function SaveAsTemplate() {
 
     return (
         <>
-            <Button variant="primary" onClick={handleShow}>
+            <Button className='text-info' variant="primary" onClick={handleShow}>
                 <FontAwesomeIcon icon={faFloppyDisk} />
             </Button>
 

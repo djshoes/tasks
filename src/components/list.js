@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { v4 as uuid } from 'uuid';
 import {
-    addTask, done, loadList, pin
+    addTask, done, pin
 } from '../features/tasksSlice'
 import TopSection from './TopSection';
 import Task from './Task';
@@ -28,19 +28,16 @@ export default function List() {
 
         dispatch(addTask({ id: uuid(), projectId: projectId.currentProject, name: taskVal, done: false, time: new Date().toLocaleString(), pinned: false }))
         document.getElementById('addform').reset()
-        dispatch(loadList({id: projectId.currentProject}))
     }
 
     
 
     const taskDone = (id, status) => {
-        dispatch(done({ id: id, done: status }))
-        dispatch(loadList({ id: projectId.currentProject }))
+        dispatch(done({ id: id, done: status, projectId: projectId.currentProject }))
     }
 
     const taskPinned = (id, status) => {
-        dispatch(pin({ id: id, pinned: status }))
-        dispatch(loadList({ id: projectId.currentProject }))
+        dispatch(pin({ id: id, pinned: status, projectId: projectId.currentProject }))
     }
 
     return (

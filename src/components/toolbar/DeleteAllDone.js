@@ -1,6 +1,8 @@
 import { Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteAllDone, loadList } from "../../features/tasksSlice";
+import { deleteAllDone } from "../../features/tasksSlice";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrashCanArrowUp } from '@fortawesome/free-solid-svg-icons'
 
 const DeleteAllDone = () => {
     let dispatch = useDispatch()
@@ -11,12 +13,13 @@ const DeleteAllDone = () => {
 
         if(c) {
             dispatch(deleteAllDone({currentProject: currentProject.currentProject}))
-            dispatch(loadList({ id: currentProject.currentProject }))
         }
     }
 
     return ( 
-        <Button onClick={() => handleDeleteAll()}>trash</Button>
+        <Button className="text-warning" onClick={() => handleDeleteAll()}>
+            <FontAwesomeIcon icon={faTrashCanArrowUp} />
+        </Button>
      );
 }
  
