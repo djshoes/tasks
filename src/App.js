@@ -106,7 +106,7 @@ function App() {
             <Col md={6}>
               <List />
             </Col>
-            <Col>
+            <Col md={3} lg={4}>
               <Notes />
             </Col>
           </Row>
